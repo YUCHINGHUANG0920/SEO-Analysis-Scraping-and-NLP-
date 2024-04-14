@@ -14,11 +14,19 @@ app = Flask(__name__, static_folder = 'public', static_url_path = '/')
 app.secret_key = 'abcxyz'
 
 
-# connect to MongoDB
-uri = "mongodb+srv://root:root123@mycluster.1hmfkzx.mongodb.net/?retryWrites=true&w=majority&appName=MyCluster"
-client = pymongo.MongoClient(uri)
-db = client.seo_system
-todos_collection = db.webtext
+### connect to MongoDB
+### input the personal URI to connect to a MongoDB database hosted on the MongoDB Atlas cloud service
+# uri = "The string is a connection URI (Uniform Resource Identifier)"
+
+### create a MongoDB client object (client) using the pymongo library in Python
+# client = pymongo.MongoClient(uri)
+
+### create a variable named db to represent the MongoDB database (seo_system)
+# db = client.seo_system
+
+### creates a variable named collection to represent webtext (the name of a collection within the seo_system database)
+# collection = db.webtext
+
 
 
 # Functions 
@@ -117,8 +125,8 @@ def search():
     text, keyword_list, link = find_keyword_list(total_page, query, ws_driver, pos_driver, ner_driver)
 
     # add to MongoDB
-    new_todo = {"title": query, 'pages': total_page, 'keyword_list': keyword_list}   
-    todos_collection.insert_one(new_todo)
+    new_text = {"title": query, 'pages': total_page, 'keyword_list': keyword_list}   
+    collection.insert_one(new_text)
 
     # count key words in the whole 'keyword_list' & in each website 'text[i]' 
     value_counts = pd.Series(keyword_list).value_counts()
