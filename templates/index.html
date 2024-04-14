@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SEO test </title>
+    <style>
+        body {
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: rgb(255, 255, 255);
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(52, 50, 67);
+        }
+
+       .input_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .input_container2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        #input {
+            width: 320px;
+            height: 22px;
+            font-size: 1.1rem;
+        }
+        
+        #input-2 {
+            width: 120px;
+            height: 22px;
+            font-size: 1.1rem;
+        }
+
+        #search {
+            width: 90px;
+            height: 32px;
+            border-radius: 8px;
+            background-color: rgb(255, 244, 146);
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        #input-s {
+            width: 300px;
+            height: 22px;
+            font-size: 1.1rem;
+        }
+        
+        #input-e {
+            width: 300px;
+            height: 22px;
+            font-size: 1.1rem;
+        }
+
+        #search-se {
+            width: 90px;
+            height: 32px;
+            border-radius: 8px;
+            background-color: rgb(255, 244, 146);
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 95vw;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        #plot {
+            width: 100%;
+            margin: auto;
+            justify-content: center;
+        }
+
+        #plot2 {
+            width: 100%;
+            margin: auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>  - SEO - </h1>
+    <form action = "/search" method = "POST" class = "input_container">
+        <div>
+            <input type = "text" placeholder = "Enter KeyWords" id = "input" name = "title"/>
+            <input type = "text" placeholder = "Enter Pages" id = "input-2" name = "pages"/>
+            <button id = "search" type = "submit"> Search-1 </button>
+        </div>
+    </form>
+
+    <br/>
+    
+    <div class = 'container'>
+        <div id = "plot">
+            {{ plot_html|safe }}
+        </div>
+        <form action = "/search2" method = "POST" class = "input_container2">
+            <div>
+                <input type = "text" placeholder = "Enter Ranking (Start)" id = "input-s" name = "start"/>
+                <input type = "text" placeholder = "Enter Ranking (End)" id = "input-e" name = "end"/>
+                <button id = "search-se" type = "submit"> Search-2 </button>
+            </div>
+        </form>
+        <br>
+    <div>
+    <div id = "plot2">
+        {{ table_html|safe }}
+    </div>
+
+</body>
+</html>

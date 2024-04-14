@@ -1,0 +1,9 @@
+## SEO Analysis - Scraping and NLP
+### Overview
+This project utilized web scraping techniques, the Chinese natural language processing tool (CKIP), and data analysis to present statistical charts of keyword occurrences on a web page built within a Flask framework. Additionally, it can further display the frequency of each keyword's appearance on web pages at specific ranking positions on Google search engine result pages. 
+
+For data storage, I used MongoDB Atlas as the cloud-based database service. It provides a reliable foundation, enabling the application to handle data and adapt to changing requirements. Therefore, at first, I should find the connection string in my Atlas dashboard. (Go to my cluster --> click "Connect" --> choose "Connect your application". It will provide me with a connection string.) Then, I can create a MongoDB client object using the provided URI, select a specific database, and reference a particular collection within that database.
+
+When users input keywords and the desired number of pages to search, the backend program conducts web scraping and Chinese natural language processing to derive a set of keywords. These pieces of information are then stored in MongoDB. Subsequently, bar charts are generated based on the frequency of keyword occurrences, and users can select the range of web page rankings to display the frequency of each keyword's appearance on every web page. This aids in website optimization, keyword selection, content optimization, and other aspects of SEO work.
+
+To set up this project on AWS, first, we need to create an EC2 instance and configure relevant security settings. Next, install the appropriate version of Python and the Flask framework on this EC2 instance. Then, we can start the Flask application on the EC2 instance. Afterward, configure DNS to point our domain name to the public IP address of this EC2 instance. Finally, we can access the Flask application via the domain name.
